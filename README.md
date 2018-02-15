@@ -10,27 +10,26 @@ TuneVolume /v 50
 <br>
 [ミュートをON/OFF]<br>
 TuneVolume /m <ON/OFF><br>
-例) ミュートをONにする場合
+例) ミュートをONにする場合<br>
 ```
 TuneVolume /m on
 ```
 <br>
 [指定した音量に設定しつつミュートを設定]<br>
-TuneVolume /v <音量> /m <ON<br>/OFF>
-例) 音量を「0」に設定してミュートをOFFにする場合
+TuneVolume /v <音量> /m <ON/OFF><br>
+例) 音量を「0」に設定してミュートをOFFにする場合<br>
 ```
 TuneVolume /v 0 /m off
 ```
 <br>
 [指定した音量に設定] ※/vや/mオプション無し<br>
 TuneVolume <音量><br>
-例) 音量を「90」に設定する場合
+例) 音量を「90」に設定する場合<br>
 ```
 TuneVolume /v 90
 ```
 <br>
 [音量/ミュート状態を表示]<br>
-TuneVolume
 ```
 TuneVolume
 ```
