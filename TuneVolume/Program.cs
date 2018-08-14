@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 /*  音量とミュートを設定
  *      TuneVolume /v <音量>      指定した音量に設定
@@ -27,8 +28,21 @@ namespace TuneVolume
             }
             else
             {
-                Sound.SetVolume((float)(ap.Volume / 100.0));
-                Sound.SetMute(ap.IsMute);
+                try
+                {
+                    Sound.SetVolume((float)(ap.Volume / 100.0));
+                    Sound.SetMute(ap.IsMute);
+                }
+                catch(Exception e)
+                {
+                    using (StreamWriter sw = new StreamWriter(
+                        Environment.ExpandEnvironmentVariables("%TEMP%") + "\\TuneVolume_" + DateTime.Now.ToString("yyyyMMdd") + ".log",
+                        true, Encoding.GetEncoding("SHIFT_JIS")))
+                    {
+                        sw.WriteLine("[" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "]");
+                        sw.WriteLine(e.ToString());
+                    }
+                }
             }
         }
     }
